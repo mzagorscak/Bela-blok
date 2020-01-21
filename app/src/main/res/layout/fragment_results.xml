@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultsFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="@string/we"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="@string/them"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_Records"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/rl_Points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_We"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="@string/we"
+                android:textColor="@android:color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/tv_Points_Total_We"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_We"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                tools:text="100"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_Points_Current_We"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            tools:text="100"
+            android:textColor="@android:color/white"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/tv_Points_Current_They"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            tools:text="100"
+            android:textColor="@android:color/white"
+            android:textSize="50sp" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_They"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="@string/them"
+                android:textColor="@android:color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/tv_Points_Total_They"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_They"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                tools:text="100"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_NewRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/btnNewRecordText"
+        android:textSize="30sp" />
+
+</LinearLayout>

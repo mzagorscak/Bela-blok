@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuItem_reset"
+        android:title="Reset"
+        android:icon="@drawable/ic_reseticon"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menuItem_pointsToWin"
+        android:title="Igra:"
+        app:showAsAction="never"
+        android:icon="@android:color/white">
+
+        <menu>
+
+            <item
+                android:id="@+id/menuItem_pointsToWin_501"
+                android:title="501"
+                android:checkable="true"/>
+
+            <item
+                android:id="@+id/menuItem_pointsToWin_701"
+                android:title="701"
+                android:checkable="true"/>
+
+            <item
+                android:id="@+id/menuItem_pointsToWin_1001"
+                android:title="1001"
+                android:checkable="true"/>
+
+        </menu>
+
+    </item>
+
+</menu>

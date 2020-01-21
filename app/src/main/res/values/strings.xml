@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bela blok</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appName">Bela blok</string>
+    <string name="we">Mi</string>
+    <string name="them">Vi</string>
+    <string name="btnNewRecordText">Nova</string>
+    <string name="btnBackText">Nazad</string>
+    <string name="etGamePointsText">Igra</string>
+    <string name="callPoints20">20</string>
+    <string name="callPoints50">50</string>
+    <string name="callPoints100">100</string>
+    <string name="callPoints150">150</string>
+    <string name="callPoints200">200</string>
+    <string name="btnDeleteCallsText">Izbriši zvanja</string>
+    <string name="btnInsertText">Unos</string>
+    <string name="initialValue">0</string>
+</resources>

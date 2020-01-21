@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultEntryFragment"
+    android:background="@color/colorPrimary"
+    android:id="@+id/rl_fragmentResultEntry">
+
+    <Button
+        android:id="@+id/btn_Back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/btnBackText"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/btn_Back">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="@string/we"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="@string/them"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ll_Header"
+        android:layout_marginTop="5dp">
+
+        <CheckedTextView
+            android:id="@+id/ctv_Points_We_Sum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="3dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:checkMark="?android:attr/listChoiceIndicatorSingle"
+            android:checkMarkTint="@color/colorPrimary"
+            android:checked="true"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/initialValue"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+        <CheckedTextView
+            android:id="@+id/ctv_Points_They_Sum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:checkMark="?android:attr/listChoiceIndicatorSingle"
+            android:checkMarkTint="@color/colorPrimary"
+            android:checked="false"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/initialValue"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Points_Game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_Points"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
+
+        <EditText
+            android:id="@+id/et_Points_Game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:hint="@string/etGamePointsText"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textColorHighlight="@color/colorPrimary"
+            android:textColorLink="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Points_Calls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_Points_Game"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
+
+        <CheckedTextView
+            android:id="@+id/ctv_Points_Calls_We"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:checkMark="?android:attr/listChoiceIndicatorSingle"
+            android:checkMarkTint="@color/colorPrimary"
+            android:checked="true"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/initialValue"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+        <CheckedTextView
+            android:id="@+id/ctv_Points_Calls_They"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:checkMark="?android:attr/listChoiceIndicatorSingle"
+            android:checkMarkTint="@color/colorPrimary"
+            android:checked="false"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/initialValue"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_CallsButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_Points_Calls"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp">
+
+        <Button
+            android:id="@+id/btn_Call_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/callPoints20"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_Call_50"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/callPoints50"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_Call_100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/callPoints100"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_Call_150"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/callPoints150"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_Call_200"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/callPoints200"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_DeleteCalls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_CallsButtons"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/btnDeleteCallsText"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_Insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/btnInsertText"
+        android:textSize="30sp"
+        android:fontFamily="@font/aclonica" />
+
+
+</RelativeLayout>
