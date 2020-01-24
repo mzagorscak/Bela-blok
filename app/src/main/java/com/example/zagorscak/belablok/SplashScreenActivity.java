@@ -20,11 +20,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        },2000);
+        },1000);
     }
 
     @Override
     public void onBackPressed() {
-        System.exit(1);
+        System.exit(0);
     }
 }
