@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -92,30 +92,38 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_Points_Game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp">
+            android:weightSum="5"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_Points_Game"
+            <NumberPicker
+                android:id="@+id/np_Points_Game1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:fontFamily="@font/aclonica"
-                android:gravity="center"
-                android:hint="@string/etGamePointsText"
-                android:inputType="number"
-                android:maxLength="3"
-                android:textColorHighlight="@color/colorPrimary"
-                android:textColorLink="@color/colorPrimary"
-                android:textCursorDrawable="@null"
-                android:textSize="25sp" />
+                android:theme="@style/NumberPicker"/>
+
+            <NumberPicker
+                android:id="@+id/np_Points_Game2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:theme="@style/NumberPicker"/>
+
+            <NumberPicker
+                android:id="@+id/np_Points_Game3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:theme="@style/NumberPicker"/>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/ll_Points_Calls"
@@ -173,7 +181,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="@string/callPoints20"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_Call_50"
@@ -182,7 +191,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="@string/callPoints50"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_Call_100"
@@ -191,7 +201,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="@string/callPoints100"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_Call_150"
@@ -200,7 +211,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="@string/callPoints150"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_Call_200"
@@ -209,7 +221,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
                 android:text="@string/callPoints200"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 

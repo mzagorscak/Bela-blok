@@ -36,9 +36,12 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
     private Button btn_Insert;
     private CheckedTextView ctv_Points_Calls_We;
     private CheckedTextView ctv_Points_Calls_They;
-    private EditText et_Points_Game;
     private CheckedTextView ctv_Points_We_Sum;
     private CheckedTextView ctv_Points_They_Sum;
+
+    private NumberPicker np_Points_Game1;
+    private NumberPicker np_Points_Game2;
+    private NumberPicker np_Points_Game3;
 
     private BelaRecord record;
 
@@ -92,10 +95,57 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
         btn_Insert = view.findViewById(R.id.btn_Insert);
         ctv_Points_Calls_We = view.findViewById(R.id.ctv_Points_Calls_We);
         ctv_Points_Calls_They = view.findViewById(R.id.ctv_Points_Calls_They);
-        et_Points_Game = view.findViewById(R.id.et_Points_Game);
-        et_Points_Game.setFilters(new InputFilter[]{new MinMaxFilter("0", "162")});
         ctv_Points_We_Sum = view.findViewById(R.id.ctv_Points_We_Sum);
         ctv_Points_They_Sum = view.findViewById(R.id.ctv_Points_They_Sum);
+
+        np_Points_Game1 = view.findViewById(R.id.np_Points_Game1);
+        np_Points_Game1.setMinValue(0);
+        np_Points_Game1.setMaxValue(1);
+        np_Points_Game2 = view.findViewById(R.id.np_Points_Game2);
+        np_Points_Game2.setMinValue(0);
+        np_Points_Game2.setMaxValue(9);
+        np_Points_Game3 = view.findViewById(R.id.np_Points_Game3);
+        np_Points_Game3.setMinValue(0);
+        np_Points_Game3.setMaxValue(9);
+
+
+        NumberPicker.OnValueChangeListener onNumberPickerValueChangedListener = new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if(np_Points_Game1.getValue() == 1)
+                {
+                    np_Points_Game2.setMaxValue(6);
+                    if(np_Points_Game2.getValue() == 6)
+                    {
+                        np_Points_Game3.setMaxValue(2);
+                    }
+                    else np_Points_Game3.setMaxValue(9);
+                }
+                else
+                {
+                    np_Points_Game2.setMaxValue(9);
+                    np_Points_Game3.setMaxValue(9);
+                }
+                Integer value = getValueFromNumberPickers();
+
+                if(ctv_Points_We_Sum.isChecked())
+                {
+                    record.setPoints_We(value);
+                    record.setPoints_They(162 -  value);
+                }
+                else
+                {
+
+                    record.setPoints_They(value);
+                    record.setPoints_We(162 -  value);
+                }
+                setUpPoints();
+            }
+        };
+
+        np_Points_Game1.setOnValueChangedListener(onNumberPickerValueChangedListener);
+        np_Points_Game2.setOnValueChangedListener(onNumberPickerValueChangedListener);
+        np_Points_Game3.setOnValueChangedListener(onNumberPickerValueChangedListener);
 
         record = new BelaRecord();
 
@@ -117,11 +167,11 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
         ctv_Points_Calls_We.setChecked(true);
         if(!record.getPoints_We().toString().equals("0"))
         {
-            et_Points_Game.setText(record.getPoints_We().toString());
+            setValueToNumberPickers(record.getPoints_We());
         }
         else
         {
-            et_Points_Game.getText().clear();
+            setValueToNumberPickers(0);
         }
         setUpListeners();
     }
@@ -175,12 +225,10 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
                 if(!ctv_Points_We_Sum.isChecked()) {
                     ctv_Points_We_Sum.setChecked(true);
                     ctv_Points_They_Sum.setChecked(false);
-                    if(!et_Points_Game.getText().toString().equals(""))
-                    {
-                        record.setPoints_We(Integer.parseInt(et_Points_Game.getText().toString()));
-                        record.setPoints_They(162 -  record.getPoints_We());
-                        setUpPoints();
-                    }
+                    record.setPoints_We(getValueFromNumberPickers());
+                    record.setPoints_They(162 -  record.getPoints_We());
+                    setUpPoints();
+
                 }
             }
         });
@@ -191,12 +239,10 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
                 if(!ctv_Points_They_Sum.isChecked()) {
                     ctv_Points_They_Sum.setChecked(true);
                     ctv_Points_We_Sum.setChecked(false);
-                    if(!et_Points_Game.getText().toString().equals(""))
-                    {
-                        record.setPoints_They(Integer.parseInt(et_Points_Game.getText().toString()));
-                        record.setPoints_We(162 -  record.getPoints_They());
-                        setUpPoints();
-                    }
+                    record.setPoints_They(getValueFromNumberPickers());
+                    record.setPoints_We(162 -  record.getPoints_They());
+                    setUpPoints();
+
                 }
             }
         });
@@ -223,48 +269,6 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
             }
         });
 
-        et_Points_Game.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(ctv_Points_We_Sum.isChecked())
-                {
-                    if(!et_Points_Game.getText().toString().equals(""))
-                    {
-                        record.setPoints_We(Integer.parseInt(et_Points_Game.getText().toString()));
-                        record.setPoints_They(162 -  record.getPoints_We());
-                    }
-                    else
-                    {
-                        record.setPoints_We(0);
-                        record.setPoints_They(0);
-                    }
-                }
-                else
-                {
-                    if(!et_Points_Game.getText().toString().equals(""))
-                    {
-                        record.setPoints_They(Integer.parseInt(et_Points_Game.getText().toString()));
-                        record.setPoints_We(162 -  record.getPoints_They());
-                    }
-                    else
-                    {
-                        record.setPoints_They(0);
-                        record.setPoints_We(0);
-                    }
-                }
-                setUpPoints();
-            }
-        });
     }
 
     @Override
@@ -308,6 +312,22 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
         }
 
         setUpPoints();
+    }
+
+    private Integer getValueFromNumberPickers()
+    {
+        return np_Points_Game1.getValue()*100+np_Points_Game2.getValue()*10+np_Points_Game3.getValue();
+    }
+
+    private void setValueToNumberPickers(Integer number)
+    {
+        Integer np1 = number/100;
+        Integer np2 = (number/10)%10;
+        Integer np3 = number%10;
+
+        np_Points_Game1.setValue(np1);
+        np_Points_Game2.setValue(np2);
+        np_Points_Game3.setValue(np3);
     }
 
     private void setUpPoints()
