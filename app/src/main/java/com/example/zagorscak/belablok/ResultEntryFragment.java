@@ -101,12 +101,15 @@ public class ResultEntryFragment extends Fragment implements View.OnClickListene
         np_Points_Game1 = view.findViewById(R.id.np_Points_Game1);
         np_Points_Game1.setMinValue(0);
         np_Points_Game1.setMaxValue(1);
+        np_Points_Game1.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         np_Points_Game2 = view.findViewById(R.id.np_Points_Game2);
         np_Points_Game2.setMinValue(0);
         np_Points_Game2.setMaxValue(9);
+        np_Points_Game2.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         np_Points_Game3 = view.findViewById(R.id.np_Points_Game3);
         np_Points_Game3.setMinValue(0);
         np_Points_Game3.setMaxValue(9);
+        np_Points_Game3.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
 
         NumberPicker.OnValueChangeListener onNumberPickerValueChangedListener = new NumberPicker.OnValueChangeListener() {
